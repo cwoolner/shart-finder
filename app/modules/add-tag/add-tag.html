@@ -1,0 +1,24 @@
+<section ng-controller="AddTagCtrl as addTagCtrl">
+    <div ng-class="{'modal-header' : addTagCtrl.isModal}">
+        <h4 ng-class="{'modal-title' : addTagCtrl.isModal}">Add a Tag</h4>
+    </div>
+    <div ng-class="{'modal-body' : addTagCtrl.isModal}">
+        <form name="addTagForm" novalidate>
+            <div ng-show="addTagCtrl.formSuccess" class="bg-success pad-all mgn-t-b">{{addTagCtrl.formSuccess}}</div>
+            <div ng-show="addTagCtrl.formGeneralError" class="bg-danger pad-all mgn-t-b">{{addTagCtrl.formGeneralError}}</div>
+            <fieldset class="form-group" ng-class="{'has-error' : addTagCtrl.formErrors.tag}">
+                <label class="control-label" for="tag">Tag</label>
+                <input type="text" class="form-control" id="tag" name="tag"
+                       ng-model="addTagCtrl.tag" autocomplete="off"
+                       ng-click="addTagCtrl.clearFormError('tag')" required auto-focus>
+                <div class="bg-danger field-error" ng-show="addTagCtrl.formErrors.tag">{{addTagCtrl.formErrors.tag.message}}</div>
+            </fieldset>
+        </form>
+    </div>
+    <div ng-class="{'modal-footer' : addTagCtrl.isModal}">
+        <button ng-click="addTagCtrl.saveTag(addTagCtrl.tag)" class="btn btn-primary">Add</button>
+        <div class="mgn-t">
+            Form output: {{addPersonCtrl.tag}}
+        </div>
+    </div>
+</section>

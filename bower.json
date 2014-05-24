@@ -1,0 +1,31 @@
+{
+  "name": "shart-finder",
+  "version": "0.0.0",
+  "authors": [
+    "FEC"
+  ],
+  "description": "Your Face",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.15",
+    "requirejs": "~2.1.11",
+    "angular-mocks": "~1.2.15",
+    "bootstrap": "~3.1.1",
+    "angular-bootstrap": "~0.10.0",
+    "angular-route": "~1.2.15",
+    "lodash": "~2.4.1"
+  },
+  "devDependencies": {
+    "angular-scenario": "~1.2.15",
+    "angular-ui-router": "~0.2.10"
+  }
+}

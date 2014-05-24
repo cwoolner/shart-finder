@@ -1,0 +1,7 @@
+npm_modules/
+node_modules/
+bower_components/
+coverage/
+.idea
+*.sublime-project
+*.sublime-workspace

@@ -1,0 +1,181 @@
+/*************************************
+ * SINGLETONS                        *
+ * Author: Carl Paradis uifusion.com *
+ * v0.1 | 20140414                   *
+ * License: none (public domain)     *
+ *************************************/
+
+/*Margin & Padding Singletons*/
+.pad-all { padding:15px; }
+.pad-t-b { padding-top:15px; padding-bottom:15px; }
+.pad-r-l { padding-right:15px; padding-left:15px; }
+.pad-t { padding-top:15px; }
+.pad-r { padding-right:15px; }
+.pad-b { padding-bottom:15px; }
+.pad-l { padding-left:15px; }
+.pad-no { padding:0; }
+.pad-t-no { padding-top:0; }
+.pad-r-no { padding-right:0; }
+.pad-b-no { padding-bottom:0; }
+.pad-l-no { padding-left:0; }
+.mgn-all { margin:15px; }
+.mgn-t-b { margin-top:15px; margin-bottom:15px; }
+.mgn-r-l { margin-right:15px; margin-left:15px; }
+.mgn-t { margin-top:15px; }
+.mgn-r { margin-right:15px; }
+.mgn-b { margin-bottom:15px; }
+.mgn-l { margin-left:15px; }
+.mgn-no  { margin:0; }
+.mgn-t-no { margin-top:0; }
+.mgn-r-no { margin-right:0; }
+.mgn-b-no { margin-bottom:0; }
+.mgn-l-no { margin-left:0; }
+.center { margin-left:auto; margin-right:auto; }
+
+/*Margin & Padding for Smaller Screens*/
+@media all and (max-width: 35em) {
+    .pad-all { padding:5px; }
+    .pad-t-b { padding-top:5px; padding-bottom:5px; }
+    .pad-r-l { padding-right:5px; padding-left:5px; }
+    .pad-t { padding-top:5px; }
+    .pad-r { padding-right:5px; }
+    .pad-b { padding-bottom:5px; }
+    .pad-l { padding-left:5px; }
+    .pad-no { padding:0; }
+    .pad-t-no { padding-top:0; }
+    .pad-r-no { padding-right:0; }
+    .pad-b-no { padding-bottom:0; }
+    .pad-l-no { padding-left:0; }
+    .mgn-all { margin:5px; }
+    .mgn-t-b { margin-top:5px; margin-bottom:5px; }
+    .mgn-r-l { margin-right:5px; margin-left:5px; }
+    .mgn-t { margin-top:5px; }
+    .mgn-r { margin-right:5px; }
+    .mgn-b { margin-bottom:5px; }
+    .mgn-l { margin-left:5px; }
+    .mgn-no, .row.mgn-no, .column.mgn-no  { margin:0; }
+    .mgn-t-no { margin-top:0; }
+    .mgn-r-no { margin-right:0; }
+    .mgn-b-no { margin-bottom:0; }
+    .mgn-l-no { margin-left:0; }
+}
+
+/*Position Singletons*/
+.pos-rel { position: relative; }
+.pos-abs { position: absolute; }
+.pos-fix { position: fixed; }
+
+/*Display Singletons*/
+.dspl-inl { display: inline !important; }
+.dspl-blk { display: block !important;}
+.dspl-inl-blk { display: inline-block; }
+.dspl-tbl { display: table; }
+.dspl-box { display: box; }
+.dspl-no { display: none !important; }
+
+/*Visibility Singletons*/
+.vis-hid { visibility: hidden; }
+.vis-vis { visibility: visible; }
+.vis-col { visibility: collapse; }
+
+/*Font & Text Singletons*/
+.main-font { font-family:Arial; /*FIXME: TBD*/ }
+.big { font-size: 1.125em }
+.small { font-size: 0.825em }
+.bold { font-weight: bold !important; }
+.normal { font-weight: normal !important; }
+.italic { font-style: italic !important; }
+.capcase { text-transform: capitalize !important; }
+.uppercase { text-transform: uppercase !important; }
+.lowercase { text-transform: lowercase !important; }
+.nocase { text-transform: none !important; }
+.txt-l { text-align: left; }
+.txt-r { text-align: right;}
+.txt-c { text-align: center; }
+
+/*Vertical Align*/
+.vert-t { vertical-align: top; }
+.vert-m { vertical-align: middle; }
+.vert-b { vertical-align: bottom; }
+
+/*lists*/
+ul.list { list-style: disc inside; }
+ol.list { list-style: decimal outside; }
+
+/*Clear & Float Singletons*/
+.fl-r { float: right; }
+.fl-l { float: left; }
+.fl-no { float: none;}
+.cl-l { clear: left; }
+.cl-r { clear: right; }
+.cl-b, br.cl-b { clear: both; }
+br.cl-b { line-height: 1px; height: 1px; }
+
+/*Layering*/
+.lowZ { z-index: 1; }
+
+/*Zoom SHAME for ie7 and below?*/
+.zoomIE { zoom: 1; }
+
+/*White Space Singletons*/
+.ws-nowrap { white-space: nowrap; }
+.ws-normal { white-space: normal; }
+
+/*Border Singletons*/
+.brdr-all, .brdr-t, .brdr-r, .brdr-b, .brdr-l { border-width: 0px; border-style: solid; border-color: #aaaaaa; }
+.brdr-t { border-top-width: 1px; }
+.brdr-r { border-right-width: 1px; }
+.brdr-b { border-bottom-width: 1px; }
+.brdr-l { border-left-width: 1px; }
+.brdr-all { border-width: 1px; }
+.brdr-all-no { border-width: 0; }
+.b-rad-3 { -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; }
+.b-rad-6 { -webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px; }
+
+/*Form Field Sizing*/
+form .xxx-sm, .form .xxx-sm { width: 30px; }
+form .xx-sm, .form .xx-sm { width: 45px; }
+form .x-sm, .form .x-sm { width: 60px; }
+form .sm, .form .sm { width: 90px; }
+form .med, .form .med { width: 120px; }
+form .lg, .form .lg { width: 150px; }
+form .x-lg, .form .x-lg { width: 210px; }
+form .xx-lg, .form .xx-lg { width: 285px; }
+form .xxx-lg, .form .xxx-lg { width: 360px; }
+@media all and (max-width: 35em) {
+    form .sm-wide, .form .sm-wide, form .med-wide, .form .med-wide, form .lg-wide,.form .lg-wide { max-width: 100%; }
+}
+
+/*Sizing Singletons*/
+.wide { width: 100%; }
+@media all and (max-width: 35em) {
+    .wide { max-width: 100%; }
+}
+
+/*Cursor Singletons*/
+.curs-wait { cursor: wait; }
+.curs-default { cursor: default; }
+.curs-pointer { cursor: pointer; }
+.curs-text { cursor: text; }
+.curs-help { cursor: help; }
+.curs-progress { cursor: progress; }
+.curs-move { cursor: move; }
+
+/*Colors for fonts and borders - for branding*/
+.color-red, .brdr-red { color: #FF0000; }
+.color-1, .brdr-color-1 { color: #A8AD5B; }
+.color-2, .brdr-color-2 { color: #9FC7D1; }
+.color-3, .brdr-color-3 { color: #3C4A53; }
+.color-4, .brdr-color-4 { color: #E87B5A; }
+.color-5, .brdr-color-5 { color: #EEC97B; }
+/*Colors for backgrounds - for branding*/
+.bg-color-1 { background-color: #F9FF87; }
+.bg-color-2 { background-color: #E0F9FF; }
+.bg-color-3 { background-color: #9ED0EF; }
+.bg-color-4 { background-color: #E5C1B7; }
+.bg-color-5 { background-color: #EDDAB4; }
+
+.opacity-0 { opacity:0; filter:alpha(opacity=0); /* For IE8 */ }
+
+/*Direction singletons*/
+.rtl, ol.rtl li, ul.rtl li { direction: rtl; }

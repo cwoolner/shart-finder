@@ -1,0 +1,28 @@
+{
+  "name": "shart-finder",
+  "version": "0.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:cwoolner/shart-finder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^3.5.1",
+    "config": "~0.4.35",
+    "karma": "^0.12.1",
+    "karma-jasmine": "^0.2.0",
+    "requirejs": "^2.1.11",
+    "karma-requirejs": "^0.2.1",
+    "karma-phantomjs-launcher": "^0.1.2",
+    "gulp": "^3.6.0",
+    "gulp-util": "^2.2.14",
+    "gulp-shell": "^0.2.4",
+    "karma-coverage": "^0.2.1"
+  }
+}

@@ -1,0 +1,18 @@
+<section ng-controller="ResultDetailCtrl as resultDetailCtrl">
+    <div>
+        <h3>{{resultDetailCtrl.selectedResult.name}}</h3>
+        <p class="bold">2013 - 2014</p>
+    </div>
+    <div class="mgn-t clearfix">
+        <div class="fl-l">
+            <div><label class="search-results-label">Tags:</label> {{resultDetailCtrl.selectedResult.tags | formatArray}}</div>
+            <div><label class="search-results-label">Team:</label> {{resultDetailCtrl.selectedResult.team | formatArray}}</div>
+        </div>
+        <span ng-click="resultDetailCtrl.deleteProject()" class="glyphicon glyphicon-trash fl-r"></span>
+    </div>
+    <hr/>
+    <section>
+        {{resultDetailCtrl.selectedResult.description}}
+    </section>
+</section>
+

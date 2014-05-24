@@ -1,0 +1,24 @@
+<section ng-controller="SearchCtrl as searchCtrl">
+    </a><input type="text" id="dbSearchInput" ng-model="searchCtrl.query" class="search-input form-control" placeholder="search">
+    <div class="mgn-t">
+        <accordion close-others="false">
+            <accordion-group heading="{{group.title}}" ng-repeat="group in searchCtrl.groups" is-open="group.isOpen">
+                <accordion-heading ng-click="isOpen=!isOpen" >
+                    <div>
+                        <span class="group-heading">
+                            {{group.content}}
+                        </span>
+                        <div class="fl-r">
+                            <a ng-click="searchCtrl.viewSearchResults($event, group.content)" class="details-nav">
+                                <span class="details-total">All {{group.items.length}}</span><i class="glyphicon glyphicon-chevron-right" ></i>
+                            </a>
+                        </div>
+                    </div>
+                </accordion-heading>
+                <div ng-repeat="item in group.items | limitTo:5 | filter:searchCtrl.query" class="search-results-row">
+                    <a href="#/result-detail/{{group.content}}/{{item._id}}">{{item.name}}</a>
+                </div>
+            </accordion-group>
+        </accordion>
+    </div>
+</section>

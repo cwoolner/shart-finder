@@ -1,0 +1,43 @@
+<section ng-controller="SearchResultsCtrl as searchResultsCtrl">
+    <input type="text" ng-model="searchResultsCtrl.query" class="search-input form-control" placeholder="search">
+
+    <div>
+        <div ng-hide="searchResultsCtrl.resultsExist()" class="mgn-t">
+            No Data Found
+        </div>
+
+        <div ng-switch="searchResultsCtrl.selectedType" ng-show="searchResultsCtrl.resultsExist()">
+
+            <div ng-switch-when="projects">
+                <div class="pad-t pad-b search-results-row" ng-repeat="result in searchResultsCtrl.results | filter:searchResultsCtrl.query">
+                    <div>
+                        <a class="search-results-title" href="#/result-detail/{{searchResultsCtrl.selectedType}}/{{result._id}}">{{result.name}}</a>
+                        <span class="fl-r bold">2013 - 2014</span>
+                    </div>
+                    <div class="mgn-t clearfix">
+                        <div class="fl-l">
+                            <div><label class="search-results-label">Tags:</label> {{result.tags | formatArray}}</div>
+                            <div><label class="search-results-label">Team:</label> {{result.team | formatArray}}</div>
+                        </div>
+                        <span ng-click="searchResultsCtrl.deleteByType()" class="glyphicon glyphicon-trash fl-r"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-switch-when="tags">
+                <div class="pad-t pad-b search-results-row" ng-repeat="result in searchResultsCtrl.results | filter:searchResultsCtrl.query">
+                     <a class="search-results-title" href="#/result-detail/{{searchResultsCtrl.selectedType}}/{{result._id}}">{{result.name}}</a>
+                </div>
+            </div>
+
+            <div ng-switch-when="people">
+                <div class="pad-t pad-b search-results-row" ng-repeat="result in searchResultsCtrl.results | filter:searchResultsCtrl.query">
+                    <a class="search-results-title" href="#/result-detail/{{searchResultsCtrl.selectedType}}/{{result._id}}">{{result.name}}</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

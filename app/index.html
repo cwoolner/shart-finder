@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Project DB</title>
+
+    <!-- Reset -->
+    <link rel="stylesheet" href="styles/reset.css"/>
+
+    <!-- Bootstrap -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Site CSS-->
+    <link rel="stylesheet" href="styles/site.css"/>
+    <link rel="stylesheet" href="styles/singletons.css"/>
+</head>
+
+<body>
+
+<div ng-controller="HeaderCtrl as headerCtrl">
+    <div ng-include src="'modules/navigation/header.html'"></div>
+</div>
+
+<div ui-view></div>
+
+<div ng-controller="FooterCtrl as footerCtrl">
+    <div ng-include src="'modules/navigation/footer.html'"></div>
+</div>
+
+
+<script src="bower_components/requirejs/require.js" data-main="main.js"></script>
+</body>
+</html>
