@@ -7,6 +7,7 @@ define(function (require) {
         // Require statements should be at the top
         var peopleStub = require("stubs/getPeople");
         var tagStub = require("stubs/getTags");
+	var encounterStub = require("stubs/getEncounters");
 
         var apiService = this;
 
@@ -80,6 +81,14 @@ define(function (require) {
             deferred.resolve(peopleStub.data);
             return deferred.promise;
         };
+
+        apiService.getEncounterById = function (id) {
+            var deferred = $q.defer();
+            apiService.apiResults.encounters = encounterStub.data;
+            deferred.resolve(encounterStub.data);
+            return deferred.promise;
+        };
+
 
         apiService.getTagResults = function () {
             var deferred = $q.defer();

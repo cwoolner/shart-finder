@@ -53,6 +53,17 @@ define([], function () {
                 }
             })
 
+            .state('encounter', {
+                url: "/encounter/:id",
+                templateUrl: 'modules/encounter/encounter.html',
+		
+                resolve: {
+                    data : function (ApiService, $stateParams) {
+                        return ApiService.getEncounterById($stateParams.id);
+                    }
+                }
+	    })
+
             .state('add-project', {
                 url: "/add-project",
                 templateUrl: "modules/add-project/add-project.html",

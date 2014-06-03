@@ -46,6 +46,7 @@ define(function (require) {
     var search = require('modules/search/search');
     var searchResults = require('modules/search-results/search-results');
     var resultDetail = require('modules/result-detail/result-detail');
+    var encounter = require('modules/encounter/encounter');
     var formUtils = require('form-utils/form-utils');
     var routerConfig = require('router-config');
 
@@ -60,6 +61,7 @@ define(function (require) {
         search.name,
         searchResults.name,
         resultDetail.name,
+        encounter.name,
         formUtils.name])
 
         .config(routerConfig);
