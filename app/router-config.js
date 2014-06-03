@@ -53,6 +53,29 @@ define([], function () {
                 }
             })
 
+<<<<<<< HEAD
+            .state('encounter', {
+                url: "/encounter/:id",
+                templateUrl: 'modules/encounter/encounter.html',
+		
+                resolve: {
+                    data : function (ApiService, $stateParams) {
+                        return ApiService.getEncounterById($stateParams.id);
+                    }
+                }
+	    })
+=======
+          .state('character-detail', {
+            url: "/character-detail/:id",
+            templateUrl: 'modules/character-detail/character-detail.html',
+            resolve: {
+              data : function (ApiService, $stateParams) {
+                return ApiService.getById("character", $stateParams.id);
+              }
+            }
+          })
+>>>>>>> cf41e79533986b14becba6602f51199a4e2234b4
+
             .state('add-project', {
                 url: "/add-project",
                 templateUrl: "modules/add-project/add-project.html",

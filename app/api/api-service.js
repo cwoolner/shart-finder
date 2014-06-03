@@ -7,6 +7,8 @@ define(function (require) {
         // Require statements should be at the top
         var peopleStub = require("stubs/getPeople");
         var tagStub = require("stubs/getTags");
+	var encounterStub = require("stubs/getEncounters");
+      var charactersStub = require("stubs/getCharacters");
 
         var apiService = this;
 
@@ -74,12 +76,29 @@ define(function (require) {
             return deferred.promise;
         };
 
+        apiService.getCharacterResults = function() {
+          console.log("character results here");
+          var deferred = $q.defer();
+          apiService.apiResults.characters = charactersStub.data;
+          console.log("charactersStub.data", charactersStub.data);
+          deferred.resolve(charactersStub.data);
+          return deferred.promise;
+        };
+
         apiService.getPeopleResults = function () {
             var deferred = $q.defer();
             apiService.apiResults.people = peopleStub.data;
             deferred.resolve(peopleStub.data);
             return deferred.promise;
         };
+
+        apiService.getEncounterById = function (id) {
+            var deferred = $q.defer();
+            apiService.apiResults.encounters = encounterStub.data;
+            deferred.resolve(encounterStub.data);
+            return deferred.promise;
+        };
+
 
         apiService.getTagResults = function () {
             var deferred = $q.defer();
@@ -139,6 +158,7 @@ define(function (require) {
             });
 
             return deferred.promise.then(function (data) {
+              console.log(data);
                 apiService.selectedResult = data;
             });
         };
@@ -158,6 +178,8 @@ define(function (require) {
                 } else if (type.toLowerCase() === "people") {
                     results = apiService.getPeopleResults();
 
+                } else if (type.toLowerCase() === "character") {
+                  results = apiService.getCharacterResults();
                 } else {
                     deferred = $q.defer();
                     deferred.resolve();
