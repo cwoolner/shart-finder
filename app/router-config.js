@@ -53,6 +53,7 @@ define([], function () {
                 }
             })
 
+<<<<<<< HEAD
             .state('encounter', {
                 url: "/encounter/:id",
                 templateUrl: 'modules/encounter/encounter.html',
@@ -63,6 +64,17 @@ define([], function () {
                     }
                 }
 	    })
+=======
+          .state('character-detail', {
+            url: "/character-detail/:id",
+            templateUrl: 'modules/character-detail/character-detail.html',
+            resolve: {
+              data : function (ApiService, $stateParams) {
+                return ApiService.getById("character", $stateParams.id);
+              }
+            }
+          })
+>>>>>>> cf41e79533986b14becba6602f51199a4e2234b4
 
             .state('add-project', {
                 url: "/add-project",
@@ -83,6 +95,15 @@ define([], function () {
                     }
                 }
             })
+            .state('/landing', {
+                url: '/landing',
+                templateUrl: "modules/landing/landing.html",
+                resolve: {
+                    data: function (ApiService) {
+                        return ApiService.getTagResults();
+                    }
+                }
+            })           
             .state('/add-person', {
                 url: '/add-person',
                 templateUrl: "modules/add-person/add-person.html",
@@ -96,7 +117,7 @@ define([], function () {
 
         // If none of the above states are matched, use this as the fallback
         $urlRouterProvider
-            .when("/home", "/search")
-            .otherwise('/search');
+            .when("/home", "/landing")
+            .otherwise('/landing');
     };
 });

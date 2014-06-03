@@ -5,3 +5,6 @@ coverage/
 .idea
 *.sublime-project
 *.sublime-workspace
+.~
+.project
+.settings/

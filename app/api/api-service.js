@@ -8,6 +8,7 @@ define(function (require) {
         var peopleStub = require("stubs/getPeople");
         var tagStub = require("stubs/getTags");
 	var encounterStub = require("stubs/getEncounters");
+      var charactersStub = require("stubs/getCharacters");
 
         var apiService = this;
 
@@ -20,7 +21,7 @@ define(function (require) {
 
             $http({
                 method: "POST",
-                url: "http://localhost:9000/api/projects",
+                url: "http://projectdb-dev.herokuapp.com/api/projects",
                 data : proj
             }).
                 success(function (data) {
@@ -42,7 +43,7 @@ define(function (require) {
 
             $http({
                 method: "DELETE",
-                url: "http://localhost:9000/api/projects/" + id
+                url: "http://projectdb-dev.herokuapp.com/api/projects/" + id
             }).
                 success(function (data) {
                     deferred.resolve(data);
@@ -66,13 +67,22 @@ define(function (require) {
 
             $http({
                 method: "GET",
-                url: "http://localhost:9000/api/projects",
+                url: "http://projectdb-dev.herokuapp.com/api/projects",
                 transformResponse: this.formatResponse
             }).success(function (data) {
                 deferred.resolve(data);
             });
 
             return deferred.promise;
+        };
+
+        apiService.getCharacterResults = function() {
+          console.log("character results here");
+          var deferred = $q.defer();
+          apiService.apiResults.characters = charactersStub.data;
+          console.log("charactersStub.data", charactersStub.data);
+          deferred.resolve(charactersStub.data);
+          return deferred.promise;
         };
 
         apiService.getPeopleResults = function () {
@@ -148,6 +158,7 @@ define(function (require) {
             });
 
             return deferred.promise.then(function (data) {
+              console.log(data);
                 apiService.selectedResult = data;
             });
         };
@@ -167,6 +178,8 @@ define(function (require) {
                 } else if (type.toLowerCase() === "people") {
                     results = apiService.getPeopleResults();
 
+                } else if (type.toLowerCase() === "character") {
+                  results = apiService.getCharacterResults();
                 } else {
                     deferred = $q.defer();
                     deferred.resolve();
