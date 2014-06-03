@@ -53,6 +53,16 @@ define([], function () {
                 }
             })
 
+          .state('character-detail', {
+            url: "/character-detail/:id",
+            templateUrl: 'modules/character-detail/character-detail.html',
+            resolve: {
+              data : function (ApiService, $stateParams) {
+                return ApiService.getById("character", $stateParams.id);
+              }
+            }
+          })
+
             .state('add-project', {
                 url: "/add-project",
                 templateUrl: "modules/add-project/add-project.html",
@@ -85,7 +95,7 @@ define([], function () {
 
         // If none of the above states are matched, use this as the fallback
         $urlRouterProvider
-            .when("/home", "/search")
-            .otherwise('/search');
+            .when("/home", "/character-detail")
+            .otherwise('/character-detail');
     };
 });

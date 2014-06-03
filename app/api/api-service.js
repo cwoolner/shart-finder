@@ -6,7 +6,8 @@ define(function (require) {
 
         // Require statements should be at the top
         var peopleStub = require("stubs/getPeople");
-        var tagStub = require("stubs/getTags");
+      var tagStub = require("stubs/getTags");
+      var charactersStub = require("stubs/getCharacters");
 
         var apiService = this;
 
@@ -74,6 +75,15 @@ define(function (require) {
             return deferred.promise;
         };
 
+        apiService.getCharacterResults = function() {
+          console.log("character results here");
+          var deferred = $q.defer();
+          apiService.apiResults.characters = charactersStub.data;
+          console.log("charactersStub.data", charactersStub.data);
+          deferred.resolve(charactersStub.data);
+          return deferred.promise;
+        };
+
         apiService.getPeopleResults = function () {
             var deferred = $q.defer();
             apiService.apiResults.people = peopleStub.data;
@@ -139,6 +149,7 @@ define(function (require) {
             });
 
             return deferred.promise.then(function (data) {
+              console.log(data);
                 apiService.selectedResult = data;
             });
         };
@@ -158,6 +169,8 @@ define(function (require) {
                 } else if (type.toLowerCase() === "people") {
                     results = apiService.getPeopleResults();
 
+                } else if (type.toLowerCase() === "character") {
+                  results = apiService.getCharacterResults();
                 } else {
                     deferred = $q.defer();
                     deferred.resolve();
