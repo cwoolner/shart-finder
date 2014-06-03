@@ -72,6 +72,15 @@ define([], function () {
                     }
                 }
             })
+            .state('/landing', {
+                url: '/landing',
+                templateUrl: "modules/landing/landing.html",
+                resolve: {
+                    data: function (ApiService) {
+                        return ApiService.getTagResults();
+                    }
+                }
+            })           
             .state('/add-person', {
                 url: '/add-person',
                 templateUrl: "modules/add-person/add-person.html",
@@ -85,7 +94,7 @@ define([], function () {
 
         // If none of the above states are matched, use this as the fallback
         $urlRouterProvider
-            .when("/home", "/search")
-            .otherwise('/search');
+            .when("/home", "/landing")
+            .otherwise('/landing');
     };
 });
