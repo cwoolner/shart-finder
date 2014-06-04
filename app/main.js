@@ -46,11 +46,8 @@ define(function (require) {
     var search = require('modules/search/search');
     var searchResults = require('modules/search-results/search-results');
     var resultDetail = require('modules/result-detail/result-detail');
-<<<<<<< HEAD
     var encounter = require('modules/encounter/encounter');
-=======
     var characterDetail = require('modules/character-detail/character-detail');
->>>>>>> cf41e79533986b14becba6602f51199a4e2234b4
     var formUtils = require('form-utils/form-utils');
     var routerConfig = require('router-config');
 
@@ -65,11 +62,8 @@ define(function (require) {
         search.name,
         searchResults.name,
         resultDetail.name,
-<<<<<<< HEAD
         encounter.name,
-=======
         characterDetail.name,
->>>>>>> cf41e79533986b14becba6602f51199a4e2234b4
         formUtils.name])
 
         .config(routerConfig);
