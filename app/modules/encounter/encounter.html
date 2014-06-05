@@ -1,8 +1,24 @@
-<section ng-controller="EncounterCtrl as encounterCtrl">
-    <div>
-        <h3>ENCOUNTER</h3>
-	<h3>{{encounterCtrl.selectedResult.name}}</h3>
+<section ng-controller="EncounterCtrl as encounterCtrl" class="container">
+    <div class="row">
+        <h1>ENCOUNTER</h1>
+		<h2>{{encounterCtrl.selectedResult.name}}</h2>
+		<h3>aka: {{encounterCtrl.selectedResult.description}}</h3>
     </div>
-    <hr/>
+    <div class="col-sm-5">
+	    <div class="table-responsive">
+	        <table class="table table-striped">
+	            <tbody>
+	                <tr>
+	                    <th>Player</th>
+	                </tr>
+	                <tr ng-repeat="nerd in encounterCtrl.selectedResult.players | orderBy:'name'">
+	                    <td>
+	                        {{nerd.name}}
+	                    </td>
+	                </tr>
+	            </tbody>
+	        </table>
+	    </div>
+    </div>
 </section>
 

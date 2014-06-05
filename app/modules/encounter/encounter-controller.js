@@ -11,7 +11,7 @@ define(function (require) {
        // this.type = $stateParams.type;
         this.id = $stateParams.id;
 
-        this.selectedResult = ApiService.apiResults.encounters[0];
+        this.selectedResult = ApiService.apiResults.encounters;
     }
 
 
