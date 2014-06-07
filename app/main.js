@@ -51,7 +51,7 @@ define(function (require) {
     var formUtils = require('form-utils/form-utils');
     var routerConfig = require('router-config');
 
-    var app = angular.module("projectDB", [
+    var app = angular.module("pshartFinder", [
         'ui.bootstrap',
         'ui.router',
         navigation.name,
@@ -68,5 +68,5 @@ define(function (require) {
 
         .config(routerConfig);
 
-    angular.bootstrap(document.getElementsByTagName('body')[0], ['projectDB']);
+    angular.bootstrap(document.getElementsByTagName('body')[0], ['pshartFinder']);
 });
