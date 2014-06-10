@@ -4,6 +4,7 @@ define(function (require) {
 
     function LandingController(ApiService) {
         var landingController = this;
+	landingController.test = 'testStuff';
     }
 
 
