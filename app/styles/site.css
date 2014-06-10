@@ -122,3 +122,7 @@ hr.no-margin {
     border-radius: 3px;
     cursor: pointer;
 }
+
+.character-label {
+    color: #00619b;
+}

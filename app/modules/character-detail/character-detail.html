@@ -1,19 +1,20 @@
 <section ng-controller="CharacterDetailCtrl as characterDetailCtrl">
     <div>
         <h3>{{characterDetailCtrl.selectedCharacter.name}}</h3>
-        <p class="bold">2013 - 2014</p>
     </div>
     <div class="mgn-t clearfix">
         <div class="fl-l">
-<div>{{characterDetailCtrl.selectedCharacter.name}}</div>
-          <div><label class="search-characters-label">Tags:</label> {{characterDetailCtrl.selectedCharacter.tags | formatArray}}</div>
-            <div><label class="search-characters-label">Team:</label> {{characterDetailCtrl.selectedCharacter.team | formatArray}}</div>
+          <div><label class="character-label">Name:</label> {{characterDetailCtrl.selectedCharacter.name}}</div>
+          <div><label class="character-label">Player:</label> {{characterDetailCtrl.selectedCharacter.player}}</div>
+          <div><label class="character-label">Sex:</label> {{characterDetailCtrl.selectedCharacter.sex}}</div>
+          <div><label class="character-label">Race:</label> {{characterDetailCtrl.selectedCharacter.race}}</div>
+          <div><label class="character-label">Class:</label> {{characterDetailCtrl.selectedCharacter.class}}</div>
+          <div><label class="character-label">Level:</label> {{characterDetailCtrl.selectedCharacter.level}}</div>
+          <div><label class="character-label">Alignment:</label> {{characterDetailCtrl.selectedCharacter.alignment}}</div>
+          <div><label class="character-label">Age:</label> {{characterDetailCtrl.selectedCharacter.age}}</div>
+          <div><label class="character-label">Height:</label> {{characterDetailCtrl.selectedCharacter.height}}</div>
+          <div><label class="character-label">Weight:</label> {{characterDetailCtrl.selectedCharacter.weight}}</div>
         </div>
-        <span ng-click="characterDetailCtrl.deleteProject()" class="glyphicon glyphicon-trash fl-r"></span>
     </div>
     <hr/>
-    <section>
-      {{characterDetailCtrl.selectedCharacter.name}}
-    </section>
 </section>
-
