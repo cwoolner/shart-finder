@@ -7,12 +7,12 @@ define(function () {
 
         // Get the type passed in off of the state parameters
         this.selectedType = $stateParams.type;
-
+        console.log(this.results);
         this.results = ApiService.apiResults[this.selectedType];
     }
 
     SearchResultsController.prototype.resultsExist = function () {
-
+        console.log("results = "+this.results);
         return this.results && this.results.length > 0;
     };
 

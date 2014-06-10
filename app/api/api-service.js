@@ -125,10 +125,12 @@ define(function (require) {
         };
 
         apiService.getAllPromises = function () {
+          console.log("get all promises");
             var promises = {
                 "people": this.getPeopleResults(),
                 "tags": this.getTagResults(),
-                "projects": this.getProjectResults()
+                "projects": this.getProjectResults(),
+                "characters": this.getCharacterResults()
             };
             return promises;
         };
@@ -141,6 +143,7 @@ define(function (require) {
                 apiService.apiResults.people = data.people;
                 apiService.apiResults.tags = data.tags;
                 apiService.apiResults.projects = data.projects;
+                apiService.apiResults.characters = data.characters;
             });
 
         };
@@ -150,7 +153,7 @@ define(function (require) {
             var deferred = $q.defer();
 
             apiService.getByType(type).then(function () {
-
+              console.log("getByType");
                 var foundElement = _.find(apiService.apiResults[type], function (result) {
                     return result._id === id;
                 });
@@ -178,7 +181,7 @@ define(function (require) {
                 } else if (type.toLowerCase() === "people") {
                     results = apiService.getPeopleResults();
 
-                } else if (type.toLowerCase() === "character") {
+                } else if (type.toLowerCase() === "characters") {
                   results = apiService.getCharacterResults();
                 } else {
                     deferred = $q.defer();
@@ -188,6 +191,7 @@ define(function (require) {
             }
 
             return results.then(function (data) {
+                console.log("resutls.then. apiResults["+type+"]");
                 apiService.apiResults[type] = data;
             });
         };

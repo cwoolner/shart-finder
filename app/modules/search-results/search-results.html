@@ -36,6 +36,12 @@
                 </div>
             </div>
 
+          <div ng-switch-when="characters">
+            <div class="pad-t pad-b search-results-row" ng-repeat="result in searchResultsCtrl.results | filter:searchResultsCtrl.query">
+              <a class="search-results-title" href="#/character-detail/{{result._id}}">{{result.name}}</a>
+            </div>
+          </div>
+
         </div>
 
     </div>

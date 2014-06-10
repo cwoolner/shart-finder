@@ -68,7 +68,7 @@ define([], function () {
             templateUrl: 'modules/character-detail/character-detail.html',
             resolve: {
               data : function (ApiService, $stateParams) {
-                return ApiService.getById("character", $stateParams.id);
+                return ApiService.getById("characters", $stateParams.id);
               }
             }
           })
