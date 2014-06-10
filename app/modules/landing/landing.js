@@ -6,7 +6,7 @@ define(function (require) {
     var landingController = require("modules/landing/landing-controller");
   
     var landing = angular.module("landing", []);
-    landing.controller('landingCtrl', landingController);
+    landing.controller('LandingCtrl', landingController);
   
     return landing;
 });
