@@ -1,14 +1,18 @@
-<div ng-controller="EncounterCtrl as encounterCtrl" class="container">
+<div ng-controller="EncounterCtrl as encounterCtrl" class="modal-dialog" xmlns="http://www.w3.org/1999/html">
     <div class="modal-header">
-        <h3 class="modal-title">I'm a modal!</h3>
+        <h3 class="modal-title">Create New Encounter</h3>
     </div>
     <div class="modal-body">
-        <h3>body</h3>
+        <form name="encounterForm" ng-controller="EncounterCtrl as encounterCtrl">
+            <label for="encounterName">Encounter name:</label>
+            <input type="text" name="encounterName" id="encounterName" ng-model="encounterModelClassGoesHere"
+                   required/>
+            <span class="error" ng-show="myForm.input.$error.required">
+                Required!</span>
+        </form>
     </div>
     <div class="modal-footer">
         <button class="btn btn-primary" ng-click="ok()">OK</button>
         <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
     </div>
 </div>
-
-
