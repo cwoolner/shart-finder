@@ -56,7 +56,7 @@ define([], function () {
             .state('encounter', {
                 url: "/encounter/:id",
                 templateUrl: 'modules/encounter/encounter.html',
-		
+
                 resolve: {
                     data : function (ApiService, $stateParams) {
                         return ApiService.getEncounterById($stateParams.id);
@@ -83,7 +83,7 @@ define([], function () {
                 }
             })
 
-            .state('/add-tag', {
+            .state('add-tag', {
                 url: '/add-tag',
                 templateUrl: "modules/add-tag/add-tag.html",
                 resolve: {
@@ -92,7 +92,7 @@ define([], function () {
                     }
                 }
             })
-            .state('/landing', {
+            .state('landing', {
                 url: '/landing',
                 templateUrl: "modules/landing/landing.html",
                 resolve: {
@@ -100,8 +100,8 @@ define([], function () {
                         return ApiService.getTagResults();
                     }
                 }
-            })           
-            .state('/session', {
+            })
+            .state('session', {
                 url: '/session',
                 templateUrl: "modules/session/session.html",
                 resolve: {
@@ -110,7 +110,7 @@ define([], function () {
                     }
                 }
             })
-            .state('/add-person', {
+            .state('add-person', {
                 url: '/add-person',
                 templateUrl: "modules/add-person/add-person.html",
                 resolve: {

@@ -2,11 +2,21 @@
 define(function (require) {
     'use strict';
 
-    function LandingController(ApiService) {
+    function LandingController($location, ApiService) {
         var landingController = this;
-	landingController.test = 'testStuff';
+        this.$location = $location;
     }
 
+    LandingController.prototype.goTo = function (screenLocation) {
+        var viewUrl = "/" + screenLocation;
 
-    return [ 'ApiService', LandingController ];
+        if (screenLocation != 'session') {
+            viewUrl = viewUrl + "/";
+        }
+
+        console.log("Going to view: " + viewUrl);
+        this.$location.url(viewUrl);
+    }
+
+    return ['$location', 'ApiService', LandingController ];
 });
