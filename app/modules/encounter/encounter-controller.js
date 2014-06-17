@@ -9,7 +9,7 @@ define(function (require) {
         this.ApiService = ApiService;
 
         // Get the type passed in off of the route parameters
-       // this.type = $stateParams.type;
+        // this.type = $stateParams.type;
         this.id = $stateParams.id;
 
         this.selectedResult = ApiService.apiResults.encounters;
@@ -22,12 +22,14 @@ define(function (require) {
 
         var ModalInstanceCtrl = function ($scope, $modalInstance) {
 
-            $scope.ok = function () {
-                $modalInstance.close();
-            };
 
             $scope.cancel = function () {
                 $modalInstance.dismiss('cancel');
+            };
+
+            $scope.ok = function() {
+//                $scope.$broadcast('show-errors-check-validity');
+
             };
         };
 

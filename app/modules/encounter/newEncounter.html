@@ -1,18 +1,19 @@
-<div ng-controller="EncounterCtrl as encounterCtrl" class="modal-dialog" xmlns="http://www.w3.org/1999/html">
+<div ng-controller="EncounterCtrl as encounterCtrl" class="modal-dialog" >
     <div class="modal-header">
         <h3 class="modal-title">Create New Encounter</h3>
     </div>
     <div class="modal-body">
-        <form name="encounterForm" ng-controller="EncounterCtrl as encounterCtrl">
-            <label for="encounterName">Encounter name:</label>
-            <input type="text" name="encounterName" id="encounterName" ng-model="encounterModelClassGoesHere"
-                   required/>
-            <span class="error" ng-show="myForm.input.$error.required">
-                Required!</span>
+        <form name="encounterForm"  ng-controller="EncounterCtrl as encounterCtrl" >
+            <div class="encounter-form" >
+                <label for="encounterName">Encounter name:</label>
+                <input type="text" name="encounterName" id="encounterName" ng-model="encounterName"
+                       ng-maxlength="75" ng-required="true" ng-submit="ok()"/>
+                <span  ng-show="encounterForm.input.$error.required">Required!</span>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" ng-click="ok()">OK</button>
+                <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+            </div>
         </form>
-    </div>
-    <div class="modal-footer">
-        <button class="btn btn-primary" ng-click="ok()">OK</button>
-        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
     </div>
 </div>
