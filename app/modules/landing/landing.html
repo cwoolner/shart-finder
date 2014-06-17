@@ -1,8 +1,8 @@
 <section ng-controller="LandingCtrl as landingCtrl">
    <h1>Test Landing page</h1>
-
-   <p>{{landingCtrl.test}}</p>
-
-    <p><a href="#/search/characters">Characters</a></p>
-   
+    <div class="btn-group">
+        <label class="btn btn-primary" ng-click="landingCtrl.goTo('encounter')">Encounter</label>
+        <label class="btn btn-primary" ng-click="landingCtrl.goTo('character-detail')">Character</label>
+        <label class="btn btn-primary" ng-click="landingCtrl.goTo('session')">Session</label>
+    </div>
 </section>
