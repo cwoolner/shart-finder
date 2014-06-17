@@ -49,6 +49,7 @@ define(function (require) {
     var encounter = require('modules/encounter/encounter');
     var characterDetail = require('modules/character-detail/character-detail');
     var landing = require('modules/landing/landing');
+    var session = require('modules/session/session');
     var formUtils = require('form-utils/form-utils');
     var routerConfig = require('router-config');
 
@@ -65,7 +66,8 @@ define(function (require) {
         resultDetail.name,
         encounter.name,
         characterDetail.name,
-	landing.name,
+        landing.name,
+        session.name,
         formUtils.name])
 
         .config(routerConfig);

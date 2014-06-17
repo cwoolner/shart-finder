@@ -101,6 +101,15 @@ define([], function () {
                     }
                 }
             })           
+            .state('/session', {
+                url: '/session',
+                templateUrl: "modules/session/session.html",
+                resolve: {
+                    data: function (ApiService) {
+                        return ApiService.getTagResults();
+                    }
+                }
+            })
             .state('/add-person', {
                 url: '/add-person',
                 templateUrl: "modules/add-person/add-person.html",
