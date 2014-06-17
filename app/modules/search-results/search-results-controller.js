@@ -4,7 +4,6 @@ define(function () {
     'use strict';
 
     function SearchResultsController($stateParams, ApiService) {
-
         // Get the type passed in off of the state parameters
         this.selectedType = $stateParams.type;
         console.log(this.results);

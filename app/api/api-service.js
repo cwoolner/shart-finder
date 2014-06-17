@@ -7,7 +7,7 @@ define(function (require) {
         // Require statements should be at the top
         var peopleStub = require("stubs/getPeople");
         var tagStub = require("stubs/getTags");
-	var encounterStub = require("stubs/getEncounters");
+	var encountersStub = require("stubs/getEncounters");
       var charactersStub = require("stubs/getCharacters");
 
         var apiService = this;
@@ -77,10 +77,8 @@ define(function (require) {
         };
 
         apiService.getCharacterResults = function() {
-          console.log("character results here");
           var deferred = $q.defer();
           apiService.apiResults.characters = charactersStub.data;
-          console.log("charactersStub.data", charactersStub.data);
           deferred.resolve(charactersStub.data);
           return deferred.promise;
         };
@@ -92,10 +90,18 @@ define(function (require) {
             return deferred.promise;
         };
 
+	apiService.getEncounterResults = function() {
+            var deferred = $q.defer();
+	    console.log('encountersStub.data: ' + encountersStub.data);
+            apiService.apiResults.encounters = encountersStub.data;
+            deferred.resolve(encountersStub.data);
+            return deferred.promise;
+        };
+
         apiService.getEncounterById = function (id) {
             var deferred = $q.defer();
-            apiService.apiResults.encounters = encounterStub.data;
-            deferred.resolve(encounterStub.data);
+            apiService.apiResults.encounters = encountersStub.data;
+            deferred.resolve(encountersStub.data);
             return deferred.promise;
         };
 
@@ -125,13 +131,15 @@ define(function (require) {
         };
 
         apiService.getAllPromises = function () {
-          console.log("get all promises");
+            console.log("get all promises");
             var promises = {
                 "people": this.getPeopleResults(),
                 "tags": this.getTagResults(),
                 "projects": this.getProjectResults(),
+		"encounters": this.getEncounterResults(),
                 "characters": this.getCharacterResults()
             };
+	    console.log("promises.encounters: " + promises.encounters);
             return promises;
         };
 
@@ -144,6 +152,8 @@ define(function (require) {
                 apiService.apiResults.tags = data.tags;
                 apiService.apiResults.projects = data.projects;
                 apiService.apiResults.characters = data.characters;
+		apiService.apiResults.encounters = data.encounters;
+		
             });
 
         };
@@ -172,6 +182,7 @@ define(function (require) {
                 deferred;
 
             if (type) {
+		console.log("type: " + type);
                 if (type.toLowerCase() === "projects") {
                     results = apiService.getProjectResults();
 
@@ -183,6 +194,8 @@ define(function (require) {
 
                 } else if (type.toLowerCase() === "characters") {
                   results = apiService.getCharacterResults();
+		} else if (type.toLowerCase() === "encounters") {
+                  results = apiService.getEncounterResults();
                 } else {
                     deferred = $q.defer();
                     deferred.resolve();
