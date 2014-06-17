@@ -20,9 +20,10 @@ define(function () {
 
         // Build an array of the objects from each getGroup invocation
         this.groups = [
-            group("Projects", true),
-            group("Tags", true),
-            group("People", true)
+	    group("Characters", true),
+	    group("Campaigns", true),
+	    group("Session", true),
+            group("Encounters", true)
         ];
     };
 
