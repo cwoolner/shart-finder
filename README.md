@@ -13,3 +13,8 @@ shart-finder
 - `npm start` - to run the server
 - You should see `Listening for requests on 9002` if all is well.
 - `http://localhost:9002`
+
+## Mongo
+
+- `mongo ds033018.mongolab.com:33018/shartfinder -u username -p password`
+

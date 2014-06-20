@@ -9,3 +9,4 @@ coverage/
 .project
 .settings/
 npm-debug.log
+config/runtime.json
