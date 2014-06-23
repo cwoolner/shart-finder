@@ -1,0 +1,44 @@
+<section ng-controller="AddCharacterCtrl as addCharacterCtrl">
+    <div ng-class="{'modal-header' : addCharacterCtrl.isModal}">
+        <h4 ng-class="{'modal-title' : addCharacterCtrl.isModal}">Add a Character</h4>
+    </div>
+    <div ng-class="{'modal-body' : addCharacterCtrl.isModal}">
+        <form name="addCharacterForm" novalidate>
+            <div ng-show="addCharacterCtrl.formSuccess" class="bg-success pad-all mgn-t-b">
+                {{addCharacterCtrl.formSuccess}}
+            </div>
+            <div ng-show="addCharacterCtrl.formGeneralError" class="bg-danger pad-all mgn-t-b">
+                {{addCharacterCtrl.formGeneralError}}
+            </div>
+            <fieldset class="form-group" ng-class="{'has-error' : addCharacterCtrl.formErrors.character}">
+                <label class="control-label" for="character.name">Name</label>
+                <input type="text" class="form-control" id="character" name="character"
+                       ng-model="addCharacterCtrl.character.name" autocomplete="off"
+                       ng-click="addCharacterCtrl.clearFormError('character')" required auto-focus>
+                <br />
+                <label class="control-label" for="character.gender">Gender</label>
+                <select ng-model="addCharacterCtrl.character.gender"
+                        id="characterGender" name="characterGender"
+                        ng-click="addCharacterCtrl.clearFormError('characterGender')" required auto-focus>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                </select>
+                <br />
+
+                <label class="control-label" for="characterHasSensor">Has Sensor</label>
+                <input type="checkbox" id="characterHasSensor" name="characterHasSensor"
+                       ng-model="addCharacterCtrl.characterHasSensor"
+                       ng-click="addCharacterCtrl.clearFormError('characterHasSensor')">
+
+                <div class="bg-danger field-error" ng-show="addCharacterCtrl.formErrors.character">
+                    {{addCharacterCtrl.formErrors.character.message}}
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div ng-class="{'modal-footer' : addCharacterCtrl.isModal}">
+        <button ng-click="addCharacterCtrl.saveCharacter(addCharacterCtrl.character)"
+                class="btn btn-primary">Add
+        </button>
+    </div>
+</section>
