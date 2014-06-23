@@ -47,7 +47,8 @@ define(function (require) {
     var searchResults = require('modules/search-results/search-results');
     var resultDetail = require('modules/result-detail/result-detail');
     var encounter = require('modules/encounter/encounter');
-    var characterDetail = require('modules/character-detail/character-detail');
+    var characterDetail = require('modules/character/character-detail');
+    // var characterAdd = require('modules/character/character-detail');
     var landing = require('modules/landing/landing');
     var session = require('modules/session/session');
     var formUtils = require('form-utils/form-utils');

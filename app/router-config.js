@@ -63,9 +63,9 @@ define([], function () {
                     }
                 }
 	    })
-          .state('character-detail', {
-            url: "/character-detail/:id",
-            templateUrl: 'modules/character-detail/character-detail.html',
+          .state('character', {
+            url: "/character/:id",
+            templateUrl: 'modules/character/character-detail.html',
             resolve: {
               data : function (ApiService, $stateParams) {
                 return ApiService.getById("characters", $stateParams.id);

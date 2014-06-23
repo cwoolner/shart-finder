@@ -1,0 +1,28 @@
+<section ng-controller="EncounterDetailCtrl as encounterDetailCtrl">
+  <div class="row">
+    <div class="col-sm-6">
+      <h1>ENCOUNTER</h1>
+      <h2>{{encounterCtrl.selectedResult.name}}</h2>
+      <h3>aka: {{encounterCtrl.selectedResult.description}}</h3>
+    </div>
+    <div>
+      <button class="btn btn-default btn-sm" ng-click="encounterCtrl.openCreateModal()">New Encounter</button>
+    </div>
+  </div>
+  <div class="col-sm-5">
+    <div class="table-responsive">
+      <table class="table table-striped">
+	<tbody>
+	  <tr>
+	    <th>Player</th>
+	  </tr>
+	  <tr ng-repeat="nerd in encounterCtrl.selectedResult.players | orderBy:'name'">
+	    <td>
+	      {{nerd.name}}
+	    </td>
+	  </tr>
+	</tbody>
+      </table>
+    </div>
+  </div>
+</section>

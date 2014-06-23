@@ -4,7 +4,7 @@ define(function (require) {
 
     // Require statements
     var angular = require("angular");
-    var characterDetailController = require("modules/character-detail/character-detail-controller");
+    var characterDetailController = require("modules/character/character-detail-controller");
 
     // Create character detail module
     var characterDetail = angular.module("characterDetail", []);

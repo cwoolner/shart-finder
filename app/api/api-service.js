@@ -8,7 +8,7 @@ define(function (require) {
         var peopleStub = require("stubs/getPeople");
         var tagStub = require("stubs/getTags");
 	var encountersStub = require("stubs/getEncounters");
-      var charactersStub = require("stubs/getCharacters");
+	var charactersStub = require("stubs/getCharacters");
 
         var apiService = this;
 
@@ -77,10 +77,10 @@ define(function (require) {
         };
 
         apiService.getCharacterResults = function() {
-          var deferred = $q.defer();
-          apiService.apiResults.characters = charactersStub.data;
-          deferred.resolve(charactersStub.data);
-          return deferred.promise;
+            var deferred = $q.defer();
+            apiService.apiResults.characters = charactersStub.data;
+            deferred.resolve(charactersStub.data);
+            return deferred.promise;
         };
 
         apiService.getPeopleResults = function () {
@@ -130,6 +130,14 @@ define(function (require) {
             return deferred.promise;
         };
 
+	apiService.addCharacter = function (character) {
+	    var deferred = $q.defer();
+            console.log("character to add:", character);
+            //FIXME: Need to do something here.
+            deferred.resolve("Character added");
+            return deferred.promise;
+	};
+
         apiService.getAllPromises = function () {
             console.log("get all promises");
             var promises = {
@@ -163,7 +171,7 @@ define(function (require) {
             var deferred = $q.defer();
 
             apiService.getByType(type).then(function () {
-              console.log("getByType");
+		console.log("getByType");
                 var foundElement = _.find(apiService.apiResults[type], function (result) {
                     return result._id === id;
                 });
@@ -171,7 +179,7 @@ define(function (require) {
             });
 
             return deferred.promise.then(function (data) {
-              console.log(data);
+		console.log(data);
                 apiService.selectedResult = data;
             });
         };
@@ -179,7 +187,7 @@ define(function (require) {
         apiService.getByType = function (type) {
 
             var results,
-                deferred;
+            deferred;
 
             if (type) {
 		console.log("type: " + type);
@@ -193,9 +201,9 @@ define(function (require) {
                     results = apiService.getPeopleResults();
 
                 } else if (type.toLowerCase() === "characters") {
-                  results = apiService.getCharacterResults();
+                    results = apiService.getCharacterResults();
 		} else if (type.toLowerCase() === "encounters") {
-                  results = apiService.getEncounterResults();
+                    results = apiService.getEncounterResults();
                 } else {
                     deferred = $q.defer();
                     deferred.resolve();
