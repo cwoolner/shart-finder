@@ -9,7 +9,7 @@ var app = express();
 app.configure(function(){
   app.set("views", __dirname + "/views");
   app.set("view engine", "jade");
-  app.use(express.static(path.join(__dirname, "../../app")));
+  app.use(express.static(path.join(__dirname, "../client")));
   app.use(express.urlencoded());
   app.use(express.json());
 });
