@@ -46,12 +46,6 @@ define(function (require) {
                 return deferred.promise;
             };
 
-            ApiServiceMock.deleteProject = function () {
-                var deferred = $q.defer();
-                deferred.resolve();
-                return deferred.promise;
-            };
-
             sut = $controller('ResultDetailCtrl', {
                 $scope: $scope
             });
@@ -63,16 +57,6 @@ define(function (require) {
 
         it('should set the id from the routeParams id value', function () {
             expect(sut.id).toEqual("testId");
-        });
-
-        it('should navigate back to search upon successful deletion of a project', function () {
-            sut.deleteProject();
-
-            // Run $scope.apply so that the deferreds are resolved/dispatched
-            $scope.$apply();
-
-            expect(sut.$state.transitionTo).toHaveBeenCalledWith("search");
-
         });
     });
 });

@@ -13,16 +13,6 @@ define(function (require) {
 
         this.selectedResult = ApiService.selectedResult;
     }
-
-    ResultDetailController.prototype.deleteProject = function () {
-        var self = this;
-
-        this.ApiService.deleteProject(this.id).then(function () {
-            self.$state.transitionTo("search");
-        }, function (error) {
-            alert("There was an error deleting");
-        });
-    };
-
+  
     return ['$state', '$stateParams', 'ApiService', ResultDetailController];
 });

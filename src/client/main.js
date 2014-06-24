@@ -40,9 +40,6 @@ define(function (require) {
     var uiRouter = require('angular-ui-router');
     var navigation = require('modules/navigation/navigation');
     var api = require('api/api');
-    var addProject = require('modules/add-project/add-project');
-    var addTag = require('modules/add-tag/add-tag');
-    var addPerson = require('modules/add-person/add-person');
     var search = require('modules/search/search');
     var searchResults = require('modules/search-results/search-results');
     var resultDetail = require('modules/result-detail/result-detail');
@@ -58,10 +55,7 @@ define(function (require) {
         'ui.router',
         navigation.name,
         api.name,
-        addProject.name,
-        addTag.name,
-        addPerson.name,
-        search.name,
+	search.name,
         searchResults.name,
         resultDetail.name,
         encounter.name,

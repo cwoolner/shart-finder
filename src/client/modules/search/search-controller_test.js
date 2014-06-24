@@ -18,15 +18,9 @@ define(function (require) {
 
             ApiServiceMock = jasmine.createSpyObj("ApiServiceMock", [
                 'getAll',
-                'getProjects',
-                'getPeople',
-                'getTags'
             ]);
 
             ApiServiceMock.apiResults = {
-                "projects": ["projectItem1"],
-                "people": ["peopleItem1"],
-                "tags": ["tagsItem1"]
             };
 
             $provide.value('ApiService', ApiServiceMock);
@@ -44,9 +38,6 @@ define(function (require) {
         describe('getGroup', function () {
 
             var resultData = [
-                { title: 'Projects', content: 'Projects', items: [ 'projectItem1' ], isOpen: true },
-                { title: 'Tags', content: 'Tags', items: [ 'tagsItem1' ], isOpen: true },
-                { title: 'People', content: 'People', items: [ 'peopleItem1' ], isOpen: true }
             ];
             it('should call build the result data correctly with data from the service', function () {
 
