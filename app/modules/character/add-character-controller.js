@@ -14,36 +14,44 @@ define(function (require) {
 	addCharacterController.formSuccess = undefined;
 	addCharacterController.formGeneralError = undefined;
 	addCharacterController.character = {};
-	addCharacterController.character.name = "";
-	addCharacterController.character.gender = "";
-	addCharacterController.character.hasSensor = false;
+	// addCharacterController.character.name = "";
+	// addCharacterController.character.player = "";
+	// addCharacterController.character.sex = "";
+	// addCharacterController.character.race = "";
+	// addCharacterController.character.characterClass = "";
+	// addCharacterController.character.level = "";
+	// addCharacterController.character.alignment = "";
+	// addCharacterController.character.age = "";
+	// addCharacterController.character.height = "";
+	// addCharacterController.character.weight = "";
+	// addCharacterController.character.experiencePoints = "";
     }
 
     AddCharacterController.prototype.setCharacterDefaults = function () {
         var self = this;
         self.character = {};
-        self.character.name = "";
-        self.character.gender = "";
-        self.character.hasSensor = false;
+	self.character.name = "";
+	self.character.player = "";
+	self.character.sex = "";
+	self.character.race = "";
+	self.character.characterClass = "";
+	self.character.level = "";
+	self.character.alignment = "";
+	self.character.age = "";
+	self.character.height = "";
+	self.character.weight = "";
+	self.character.experiencePoints = "";
     };  
 
     AddCharacterController.prototype.validateCharacter = function (character) {
 	var self = this;
 	console.log("character: " + character);
 	console.log("validateCharacter.character.name: " + character.name);
-	console.log("validateCharacter.characterGender.gender: " + character.gender);
-	console.log("validateCharacter.characterHasSensor: " + character.hasSensor);
 
 	if (_.isEmpty(character.name)) {
 	    self.formErrors.character.name = { "message": "Name is required." };
 	} else {
 	    self.formErrors = _.omit(self.formErrors, 'character.name');	    
-	}
-
-	if (_.isEmpty(character.gender)) {
-	    self.formErrors.character.gender = { "message": "Gender is required." };
-	} else {
-	    self.formErrors = _.omit(self.formErrors, 'character.gender');	    
 	}
     };
 
@@ -55,9 +63,7 @@ define(function (require) {
     AddCharacterController.prototype.saveCharacter = function (character) {
 	console.log("character: " + character);
 	var self = this,
-	name = character.name, 
-	characterGender = character.gender, 
-	characterHasSensor = character.hasSensor;
+	name = character.name;
 	
 	self.validateCharacter(character);
 	self.formSuccess = undefined;

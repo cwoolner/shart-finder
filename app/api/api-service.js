@@ -11,6 +11,7 @@ define(function (require) {
 	var charactersStub = require("stubs/getCharacters");
 
         var apiService = this;
+	var appConfig = require("app-config");
 
         apiService.apiResults = {};
 
@@ -131,10 +132,24 @@ define(function (require) {
         };
 
 	apiService.addCharacter = function (character) {
-	    var deferred = $q.defer();
-            console.log("character to add:", character);
-            //FIXME: Need to do something here.
-            deferred.resolve("Character added");
+	    console.log("character to add:", character);
+
+            var deferred = $q.defer();
+
+            $http({
+                method: "POST",
+                url: appConfig.getApiURI()+"/character",
+                data : character
+            }).
+                success(function (data) {
+                    deferred.resolve(data);
+                }).
+                error(function (error, status) {
+                    console.log("An error has occurred adding a character");
+                    console.log(error);
+                    deferred.reject(error);
+                });
+
             return deferred.promise;
 	};
 

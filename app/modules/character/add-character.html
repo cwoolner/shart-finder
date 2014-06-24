@@ -1,44 +1,119 @@
 <section ng-controller="AddCharacterCtrl as addCharacterCtrl">
-    <div ng-class="{'modal-header' : addCharacterCtrl.isModal}">
-        <h4 ng-class="{'modal-title' : addCharacterCtrl.isModal}">Add a Character</h4>
-    </div>
-    <div ng-class="{'modal-body' : addCharacterCtrl.isModal}">
-        <form name="addCharacterForm" novalidate>
-            <div ng-show="addCharacterCtrl.formSuccess" class="bg-success pad-all mgn-t-b">
-                {{addCharacterCtrl.formSuccess}}
-            </div>
-            <div ng-show="addCharacterCtrl.formGeneralError" class="bg-danger pad-all mgn-t-b">
-                {{addCharacterCtrl.formGeneralError}}
-            </div>
-            <fieldset class="form-group" ng-class="{'has-error' : addCharacterCtrl.formErrors.character}">
-                <label class="control-label" for="character.name">Name</label>
-                <input type="text" class="form-control" id="character" name="character"
-                       ng-model="addCharacterCtrl.character.name" autocomplete="off"
-                       ng-click="addCharacterCtrl.clearFormError('character')" required auto-focus>
-                <br />
-                <label class="control-label" for="character.gender">Gender</label>
-                <select ng-model="addCharacterCtrl.character.gender"
-                        id="characterGender" name="characterGender"
-                        ng-click="addCharacterCtrl.clearFormError('characterGender')" required auto-focus>
-                    <option value="M">Male</option>
-                    <option value="F">Female</option>
-                </select>
-                <br />
+  <div ng-class="{'modal-header' : addCharacterCtrl.isModal}">
+    <h4 ng-class="{'modal-title' : addCharacterCtrl.isModal}">Add a Character</h4>
+  </div>
+  <div ng-class="{'modal-body' : addCharacterCtrl.isModal}">
+    <form name="addCharacterForm" novalidate>
+      <div ng-show="addCharacterCtrl.formSuccess" class="bg-success pad-all mgn-t-b">
+        {{addCharacterCtrl.formSuccess}}
+      </div>
+      <div ng-show="addCharacterCtrl.formGeneralError" class="bg-danger pad-all mgn-t-b">
+        {{addCharacterCtrl.formGeneralError}}
+      </div>
+      <fieldset class="form-group" ng-class="{'has-error' : addCharacterCtrl.formErrors.character}">
 
-                <label class="control-label" for="characterHasSensor">Has Sensor</label>
-                <input type="checkbox" id="characterHasSensor" name="characterHasSensor"
-                       ng-model="addCharacterCtrl.characterHasSensor"
-                       ng-click="addCharacterCtrl.clearFormError('characterHasSensor')">
+	<!-- name -->
+        <label class="control-label" for="character.name">Name</label>
+        <input type="text" class="form-control" id="character" name="name"
+               ng-model="addCharacterCtrl.character.name" autocomplete="off"
+               ng-click="addCharacterCtrl.clearFormError('name')" required auto-focus>
+        <br />
 
-                <div class="bg-danger field-error" ng-show="addCharacterCtrl.formErrors.character">
-                    {{addCharacterCtrl.formErrors.character.message}}
-                </div>
-            </fieldset>
-        </form>
-    </div>
-    <div ng-class="{'modal-footer' : addCharacterCtrl.isModal}">
-        <button ng-click="addCharacterCtrl.saveCharacter(addCharacterCtrl.character)"
-                class="btn btn-primary">Add
-        </button>
-    </div>
+	<!-- player -->
+	<label class="control-label" for="character.player">Player</label>
+        <input type="text" class="form-control" id="character" name="player"
+               ng-model="addCharacterCtrl.character.player" autocomplete="off"
+               ng-click="addCharacterCtrl.clearFormError('player')" required auto-focus>
+        <br />
+
+	<!-- sex -->
+	<label class="control-label" for="character.sex">Sex</label>
+        <select ng-model="addCharacterCtrl.character.sex"
+                id="characterSex" name="characterSex"
+                ng-click="addCharacterCtrl.clearFormError('sex')" required auto-focus>
+          <option value="M">Male</option>
+          <option value="F">Female</option>
+        </select>
+        <br />
+
+	<!-- race -->
+	<label class="control-label" for="character.race">Race</label>
+        <select ng-model="addCharacterCtrl.character.race"
+                id="characterRace" name="characterRace"
+                ng-click="addCharacterCtrl.clearFormError('race')" required auto-focus>
+          <option value="Dwarf">Dwarf</option>
+	  <option value="Elf">Elf</option>
+	  <option value="Gnome">Gnome</option>
+	  <option value="Half-Elf">Half-Elf</option>
+	  <option value="Half-Orc">Half-Orc</option>
+	  <option value="Halfling">Halfling</option>
+	  <option value="Human">Human</option>
+        </select>
+        <br />
+
+	<!-- characterClass -->
+	<label class="control-label" for="character.characterClass">Class</label>
+        <select ng-model="addCharacterCtrl.character.characterClass"
+                id="characterCharacterClass" name="characterCharacterClass"
+                ng-click="addCharacterCtrl.clearFormError('characterClass')" required auto-focus>
+	  <option value="Barbarian">Barbarian</option>
+	  <option value="Bard">Bard</option>
+	  <option value="Cleric">Cleric</option>
+	  <option value="Druid">Druid</option>
+	  <option value="Fighter">Fighter</option>
+	  <option value="Monk">Monk</option>
+	  <option value="Paladin">Paladin</option>
+	  <option value="Ranger">Ranger</option>
+	  <option value="Rogue">Rogue</option>
+	  <option value="Sorcerer">Sorcerer</option>
+	  <option value="Wizard">Wizard</option>
+        </select>
+        <br />
+
+	<!-- level -->
+	<label class="control-label" for="character.level">Level</label>
+        <input type="text" ng-model="addCharacterCtrl.character.level"
+                id="characterLevel" name="characterLevel"
+                ng-click="addCharacterCtrl.clearFormError('level')" required auto-focus>
+        <br />
+
+	<!-- alignment -->
+	<label class="control-label" for="character.alignment">Alignment</label>
+        <input type="text" ng-model="addCharacterCtrl.character.alignment"
+                id="characterAlignment" name="characterAlignment"
+                ng-click="addCharacterCtrl.clearFormError('alignment')" required auto-focus>
+        <br />
+
+	<!-- age -->
+	<label class="control-label" for="character.age">Age</label>
+        <input type="text" ng-model="addCharacterCtrl.character.age"
+                id="characterAge" name="characterAge"
+                ng-click="addCharacterCtrl.clearFormError('age')" required auto-focus>
+        <br />
+
+	<!-- height -->
+	<label class="control-label" for="character.height">Height</label>
+        <input type="text" ng-model="addCharacterCtrl.character.height"
+                id="characterHeight" name="characterHeight"
+                ng-click="addCharacterCtrl.clearFormError('height')" required auto-focus>
+        <br />
+
+	<!-- weight -->
+	<label class="control-label" for="character.weight">Weight</label>
+        <input type="text" ng-model="addCharacterCtrl.character.weight"
+                id="characterWeight" name="characterWeight"
+                ng-click="addCharacterCtrl.clearFormError('weight')" required auto-focus>
+        <br />
+	
+        <div class="bg-danger field-error" ng-show="addCharacterCtrl.formErrors.character">
+          {{addCharacterCtrl.formErrors.character.message}}
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <div ng-class="{'modal-footer' : addCharacterCtrl.isModal}">
+    <button ng-click="addCharacterCtrl.saveCharacter(addCharacterCtrl.character)"
+            class="btn btn-primary">Add
+    </button>
+  </div>
 </section>
