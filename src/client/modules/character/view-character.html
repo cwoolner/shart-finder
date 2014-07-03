@@ -15,6 +15,42 @@
           <div><label class="character-label">Height:</label> {{viewCharacterCtrl.selectedCharacter.height}}</div>
           <div><label class="character-label">Weight:</label> {{viewCharacterCtrl.selectedCharacter.weight}}</div>
         </div>
+		
+		<table class="table table-condensed table-striped">
+            <thead>
+            <tr>
+                <th>Ability</th>
+                <th>Score</th>
+                <th>Modifier</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="ability in viewCharacterCtrl.selectedCharacter.abilities">
+                <td>{{ability.name}}</td>
+                <td>{{ability.score}}</td>
+                <td>{{ability.modifier}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <table class="table table-condensed table-striped">
+            <thead>
+            <tr>
+                <th>Skill Name</th>
+                <th>Total</th>
+                <th>Ability</th>
+                <th>Ranks</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="skill in viewCharacterCtrl.selectedCharacter.skills">
+                <td>{{skill.name}}</td>
+                <td>{{skill.total}}</td>
+                <td>{{skill.ability}}({{viewCharacterCtrl.selectedCharacter.abilities.modifier | formatArray | filter: skill.ability}})</td>
+                <td>{{skill.ranks || "-"}}</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
     <hr/>
 </section>
