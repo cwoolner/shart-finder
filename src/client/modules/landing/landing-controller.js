@@ -10,7 +10,7 @@ define(function (require) {
     LandingController.prototype.goTo = function (screenLocation) {
         var viewUrl = "/" + screenLocation;
 
-        if (screenLocation != 'session') {
+        if (screenLocation != 'session' && screenLocation != 'search/characters') {
             viewUrl = viewUrl + "/";
         }
 
