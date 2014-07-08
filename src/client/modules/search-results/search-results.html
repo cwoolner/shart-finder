@@ -8,17 +8,17 @@
 
         <div ng-switch="searchResultsCtrl.selectedType" ng-show="searchResultsCtrl.resultsExist()">
           
-          <div ng-switch-when="characters">
+            <div ng-switch-when="characters">
             <div class="pad-t pad-b search-results-row" ng-repeat="result in searchResultsCtrl.results | filter:searchResultsCtrl.query">
-              <a class="search-results-title" href="#/character/{{result._id}}">{{result.name}}</a>
+                <a class="search-results-title" href="#/character/{{result._id}}">{{result.name}}</a>
             </div>
-          </div>
+            </div>
 
-	  <div ng-switch-when="encounters">
+            <div ng-switch-when="encounters">
             <div class="pad-t pad-b search-results-row" ng-repeat="result in searchResultsCtrl.results | filter:searchResultsCtrl.query">
-              <a class="search-results-title" href="#/encounter/{{result._id}}">{{result.name}}</a>
+                <a class="search-results-title" href="#/encounter/{{result._id}}">{{result.name}}</a>
             </div>
-          </div>
+            </div>
 
         </div>
 

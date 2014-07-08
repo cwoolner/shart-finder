@@ -15,8 +15,9 @@
                         </div>
                     </div>
                 </accordion-heading>
-                <div ng-repeat="item in group.items | limitTo:5 | filter:searchCtrl.query" class="search-results-row">
-                    <a href="#/result-detail/{{group.content}}/{{item._id}}">{{item.name}}</a>
+                <div ng-switch="group.content" ng-repeat="item in group.items | limitTo:5 | filter:searchCtrl.query" class="search-results-row">
+                    <a ng-switch-default href="#/result-detail/{{group.content}}/{{item._id}}">{{item.name}}</a>
+                    <a ng-switch-when="Characters" href="#/character/{{item._id}}">{{item.name}}</a>
                 </div>
             </accordion-group>
         </accordion>
