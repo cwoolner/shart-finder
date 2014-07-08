@@ -45,6 +45,17 @@ define([], function () {
                         return ApiService.getEncounterById($stateParams.id);
                     }
                 }
+        })
+
+            .state('add-campaign', {
+                url: "/add-campaign",
+                templateUrl: 'modules/campaign/add-campaign.html',
+
+                resolve: {
+                    data : function (ApiService, $stateParams) {
+                        return;
+                    }
+                }
 	    })
             .state('view-character', {
 		url: "/character/:id",

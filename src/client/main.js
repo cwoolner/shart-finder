@@ -44,6 +44,7 @@ define(function (require) {
     var searchResults = require('modules/search-results/search-results');
     var resultDetail = require('modules/result-detail/result-detail');
     var encounter = require('modules/encounter/encounter');
+    var campaign = require('modules/campaign/campaign');
     var character = require('modules/character/character');
     var landing = require('modules/landing/landing');
     var session = require('modules/session/session');
@@ -59,6 +60,7 @@ define(function (require) {
         searchResults.name,
         resultDetail.name,
         encounter.name,
+        campaign.name,
         character.name,
         landing.name,
         session.name,

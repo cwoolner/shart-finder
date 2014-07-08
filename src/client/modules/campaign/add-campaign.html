@@ -1,0 +1,26 @@
+<section ng-controller="CampaignCtrl as campaignCtrl" class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h1>Campaign</h1>
+            <h2>{{campaignCtrl.selectedResult.name}}</h2>
+        </div>
+    </div>
+    <h3>Campaign Characters</h3>
+    <div class="col-sm-5">
+	    <div class="table-responsive">
+	        <table class="table table-striped">
+	            <tbody>
+	                <tr>
+	                    <th>Character</th>
+	                </tr>
+	                <tr ng-repeat="nerd in campaignCtrl.selectedResult.players | orderBy:'name'">
+	                    <td>
+	                        {{nerd.name}}
+	                    </td>
+	                </tr>
+	            </tbody>
+	        </table>
+	    </div>
+    </div>
+</section>
+
