@@ -1,26 +1,20 @@
 <section ng-controller="CampaignCtrl as campaignCtrl" class="container">
     <div class="row">
         <div class="col-sm-6">
-            <h1>Campaign</h1>
-            <h2>{{campaignCtrl.selectedResult.name}}</h2>
+            <h1>Add a new campaign</h1>
         </div>
     </div>
-    <h3>Campaign Characters</h3>
-    <div class="col-sm-5">
-	    <div class="table-responsive">
-	        <table class="table table-striped">
-	            <tbody>
-	                <tr>
-	                    <th>Character</th>
-	                </tr>
-	                <tr ng-repeat="nerd in campaignCtrl.selectedResult.players | orderBy:'name'">
-	                    <td>
-	                        {{nerd.name}}
-	                    </td>
-	                </tr>
-	            </tbody>
-	        </table>
-	    </div>
+    <div class="container">
+    	<form id="campaign-form" class="form-horizontal" role="form" novalidate>
+		    <div class="form-group">
+		        <label for="campaign-name" class="control-label">Campaign name</label>
+		        <input type="text" id="campaign-name" class="form-control" ng-model="campaignCtrl.campaign.name" required></input>
+		    </div>
+            <div class="form-group">
+                <button class="btn btn-primary" ng-click="campaignCtrl.save(campaignCtrl.campaign)">Save</button>
+                <button class="btn" ng-click="campaignCtrl.cancel()">Cancel</button>
+            </div>		    
+		</form>
     </div>
 </section>
 

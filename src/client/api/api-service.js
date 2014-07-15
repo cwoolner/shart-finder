@@ -62,6 +62,28 @@ define(function (require) {
       return deferred.promise;
     };
 
+    apiService.addCampaign = function (campaign) {
+      console.log("campaign to add:", campaign);
+
+      var deferred = $q.defer();
+
+      $http({
+        method: "POST",
+        url: appConfig.getApiURI() + "/campaign",
+        data: campaign
+      }).
+      success(function (data) {
+        deferred.resolve(data);
+      }).
+      error(function (error, status) {
+        console.log("An error has occurred adding a campaign");
+        console.log(error);
+        deferred.reject(error);
+      });
+
+      return deferred.promise;
+    };
+
     apiService.getAllPromises = function () {
       console.log("get all promises");
       var promises = {
